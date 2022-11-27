@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Registration form</title>
+    
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="card">
+            <div class="inner-box" id="card">
+                <div class="card-back">
+                    <h2>REGISTER</h2>
+                    <form id="register" onsubmit="submitFunction()"> 
+                        
+                        <input type="text" class="input-box" placeholder="Your Name" id="name"  required>
+                        <input type="email" class="input-box" placeholder="Your Email Id" id="email" required>
+                        <input type="password" class="input-box" placeholder="Password with in 12 value" id="password" maxlength="12" required>
+                        <button type="submit" class="submit-btn">Submit</button>
+                        <input type="checkbox"><span>Remember Me</span>
+                    </form>
+                    <a href="">I have an Account</a>
+                    <a href="">Forgot Password ?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p id="demo3"></p>
+    <script>
+        var demo=[]
+        var demo2=[]
+        const mdata= JSON.parse(localStorage.getItem("user"))
+        console.log(mdata)
+        if(mdata){
+            demo=mdata
+        }
+        
+        const submitFunction=()=> {
+            event.preventDefault()
+            const name=document.getElementById("name").value;
+            const email=document.getElementById("email").value;
+            const password=document.getElementById("password").value;
+            document.getElementById("name").value;
+            document.getElementById("email").value;
+            document.getElementById("password").value;
+            const userdata={name:name,email:email,password:password}
+            demo.push(userdata)
+            demo2.push(userdata)
+            console.log(demo)
+            console.log(demo2)
+
+            const data=JSON.stringify(demo)
+            const data2=JSON.stringify(demo2)
+            localStorage.setItem("user",data)
+            localStorage.setItem("user2",data2)
+            window.location.replace("http://127.0.0.1:5500/login.html");
+        }
+        
+
+    </script>
+</body>
+</html>
